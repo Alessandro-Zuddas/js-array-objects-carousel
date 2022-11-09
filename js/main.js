@@ -1,5 +1,145 @@
 "use strict";
 
+function carouselCore(carouselIndex){
+
+    if(carouselIndex === 0){
+
+        container.innerHTML = 
+        `
+        <div class="col-big">
+            <img class="item-img" src="${images[0].image}" alt="">
+            <div class="item-description">
+                <h2 class="item-title">${images[0].title}</h2>
+                <p class="item-text">${images[0].text}</p>
+            </div>
+        </div>
+        <div class="col-small">
+            <div class="col-small-row">
+                <img class="item-img" src="${images[1].image}" alt="">
+            </div>
+            <div class="col-small-row">
+                <img class="item-img" src="${images[2].image}" alt="">
+            </div>
+            <div class="col-small-row">
+                <img class="item-img" src="${images[3].image}" alt="">
+            </div>
+            <div class="col-small-row">
+                <img class="item-img" src="${images[4].image}" alt="">
+            </div>
+        </div>
+        `
+    }else if(carouselIndex === 1){
+
+        container.innerHTML = 
+        `
+        <div class="col-big">
+            <img class="item-img" src="${images[1].image}" alt="">
+            <div class="item-description">
+                <h2 class="item-title">${images[1].title}</h2>
+                <p class="item-text">${images[1].text}</p>
+            </div>
+        </div>
+        <div class="col-small">
+            <div class="col-small-row">
+                <img class="item-img" src="${images[2].image}" alt="">
+            </div>
+            <div class="col-small-row">
+                <img class="item-img" src="${images[3].image}" alt="">
+            </div>
+            <div class="col-small-row">
+                <img class="item-img" src="${images[4].image}" alt="">
+            </div>
+            <div class="col-small-row">
+                <img class="item-img" src="${images[0].image}" alt="">
+            </div>
+        </div>
+        `
+    }else if(carouselIndex === 2){
+
+        container.innerHTML = 
+        `
+        <div class="col-big">
+            <img class="item-img" src="${images[2].image}" alt="">
+            <div class="item-description">
+                <h2 class="item-title">${images[2].title}</h2>
+                <p class="item-text">${images[2].text}</p>
+            </div>
+        </div>
+        <div class="col-small">
+            <div class="col-small-row">
+                <img class="item-img" src="${images[3].image}" alt="">
+            </div>
+            <div class="col-small-row">
+                <img class="item-img" src="${images[4].image}" alt="">
+            </div>
+            <div class="col-small-row">
+                <img class="item-img" src="${images[0].image}" alt="">
+            </div>
+            <div class="col-small-row">
+                <img class="item-img" src="${images[1].image}" alt="">
+            </div>
+        </div>
+        `
+    }else if(carouselIndex === 3){
+
+        container.innerHTML = 
+        `
+        <div class="col-big">
+            <img class="item-img" src="${images[3].image}" alt="">
+            <div class="item-description">
+                <h2 class="item-title">${images[3].title}</h2>
+                <p class="item-text">${images[3].text}</p>
+            </div>
+        </div>
+        <div class="col-small">
+            <div class="col-small-row">
+                <img class="item-img" src="${images[4].image}" alt="">
+            </div>
+            <div class="col-small-row">
+                <img class="item-img" src="${images[0].image}" alt="">
+            </div>
+            <div class="col-small-row">
+                <img class="item-img" src="${images[1].image}" alt="">
+            </div>
+            <div class="col-small-row">
+                <img class="item-img" src="${images[2].image}" alt="">
+            </div>
+        </div>
+        `
+    }else if(carouselIndex === 4){
+
+        container.innerHTML = 
+        `
+        <div class="col-big">
+            <img class="item-img" src="${images[4].image}" alt="">
+            <div class="item-description">
+                <h2 class="item-title">${images[4].title}</h2>
+                <p class="item-text">${images[4].text}</p>
+            </div>
+        </div>
+        <div class="col-small">
+            <div class="col-small-row">
+                <img class="item-img" src="${images[0].image}" alt="">
+            </div>
+            <div class="col-small-row">
+                <img class="item-img" src="${images[1].image}" alt="">
+            </div>
+            <div class="col-small-row">
+                <img class="item-img" src="${images[2].image}" alt="">
+            </div>
+            <div class="col-small-row">
+                <img class="item-img" src="${images[3].image}" alt="">
+            </div>
+        </div>
+        `
+    }
+
+}
+
+/*------------------------------------------------------------------------------
+                                FUNCTIONS 
+-------------------------------------------------------------------------------*/
+
 // Array di oggetti
 const images = [
     {
@@ -29,19 +169,39 @@ const images = [
     }
 ];
 
-let i = 0;
-
 // Milestone 1:
 // Ora rimuoviamo i contenuti statici e usiamo l’array di oggetti letterali per popolare dinamicamente il carosello.
-const itemsContainer = document.getElementById("items-container");
-const activeImgContainer = document.querySelector(".col-big");
-const asideImgContainer = document.querySelector(".col-small");
-const asideRow = document.createElement("div");
-asideRow.classList.add("col-small-row");
+const container = document.getElementById("items-container");
+let carouselIndex = 0;
 
-console.log(activeImgContainer);
-console.log(asideImgContainer);
+carouselCore(carouselIndex);
 
+const nextBtn = document.getElementById("next-btn");
+const previousBtn = document.getElementById("previous-btn");
+
+nextBtn.addEventListener("click", function(){
+
+    if(carouselIndex == 4){
+        carouselIndex = 0;
+        carouselCore(carouselIndex);
+    }else{
+        carouselIndex++;
+        carouselCore(carouselIndex);
+    }
+
+});
+
+previousBtn.addEventListener("click", function(){
+
+    if(carouselIndex <= 0){
+        carouselIndex = 4;
+        carouselCore(carouselIndex);
+    }else{
+        carouselIndex--;
+        carouselCore(carouselIndex);
+    }
+
+});
 
 // Al click dell'utente sulle frecce verso l'alto o il basso, l'immagine attiva diventerà visibile e dovremo aggiungervi titolo e testo.
 // Milestone 2:
@@ -53,30 +213,3 @@ console.log(asideImgContainer);
 // BONUS 3:
 // Aggiungere bottoni di start/stop e di inversione del meccanismo di autoplay.
 // Buon lavoro e buon divertimento! :faccia_leggermente_sorridente:
-
-{/* <div id="items-container" class="container">
-        <div class="col-big">
-            <img class="item-img" src="img/01.webp" alt="">
-            <div class="item-description">
-                <h2 class="item-title">Amazing Spiderman</h2>
-                <p class="item-text">Experience the rise of Miles Morales as the new hero masters incredible, explosive new powers to become his own Spider-Man.</p>
-            </div>
-        </div>
-        <div class="col-small">
-            <div class="col-small-row">
-                <img class="item-img" src="img/02.webp" alt="">
-            </div>
-            <div class="col-small-row">
-                <img class="item-img" src="img/03.webp" alt="">
-            </div>
-            <div class="col-small-row">
-                <img class="item-img" src="img/04.webp" alt="">
-            </div>
-            <div class="col-small-row">
-                <img class="item-img" src="img/05.webp" alt="">
-            </div>
-            <!-- Buttons -->
-            <button id="previous-btn" class="previous btns" type="button"><i class="fa-solid fa-chevron-up"></i></button>
-            <button id="next-btn" class="next btns" type="button"><i class="fa-solid fa-chevron-down"></i></button>
-        </div>
-</div> */}

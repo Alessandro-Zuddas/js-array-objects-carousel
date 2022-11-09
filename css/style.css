@@ -72,12 +72,12 @@ body{
 
 .previous{
     position: absolute;
-    top: 2%;
-    left: 40%;
+    top: 21%;
+    left: 70.5%;
 }
 
 .next{
     position: absolute;
-    bottom: 2%;
-    left: 40%;
+    bottom: 26%;
+    left: 70.5%;
 }
