@@ -7,3 +7,77 @@
     margin: 0;
     padding: 0;
 }
+
+/*----------
+    COMMON 
+-----------*/
+
+body{
+    background-color: bisque;
+}
+
+.container{
+    display: flex;
+    width: 46.875rem;
+    height: 25rem;
+    background-color: beige;
+    margin: auto;
+    margin-top: 9.375rem;
+}
+
+/*----------
+    MAIN 
+-----------*/
+
+.col-big{
+    position: relative;
+    width: 82%;
+    height: 100%;
+    background-color: aqua;
+}
+
+.item-img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.item-description{
+    text-align: end;
+    position: absolute;
+    right: 2%;
+    bottom: 2%;
+    color: white;
+}
+
+.col-small{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 18%;
+    background-color: bisque;
+}
+
+.col-small-row{
+    height: calc(100% / 4);
+    border: 1px solid white;
+}
+
+.btns{
+    padding: .3125rem .3125rem;
+    border: none;
+    border-radius: .9375rem;
+    cursor: pointer;
+}
+
+.previous{
+    position: absolute;
+    top: 2%;
+    left: 40%;
+}
+
+.next{
+    position: absolute;
+    bottom: 2%;
+    left: 40%;
+}
