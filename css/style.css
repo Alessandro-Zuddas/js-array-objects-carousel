@@ -25,6 +25,10 @@ body{
     margin-top: 9.375rem;
 }
 
+main{
+    text-align: center;
+}
+
 /*----------
     MAIN 
 -----------*/
@@ -33,7 +37,6 @@ body{
     position: relative;
     width: 82%;
     height: 100%;
-    background-color: aqua;
 }
 
 .item-img{
@@ -82,3 +85,19 @@ body{
     bottom: 1%;
     left: 45%;
 }
+
+#start-btn{
+    margin-top: .9375rem;
+    padding: .3125rem .625rem;
+}
+
+#stop-btn{
+    margin-top: .9375rem;
+    padding: .3125rem .625rem;
+}
+
+#reverse-btn{
+    margin-top: .9375rem;
+    padding: .3125rem .625rem;
+}
+

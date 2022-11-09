@@ -178,6 +178,33 @@ function carouselCore(carouselIndex){
 
 }
 
+function startAutoplay(){
+    autoplay = setInterval(function(){
+        if(carouselIndex < 4){
+            carouselIndex++;
+            carouselCore(carouselIndex);
+        }else{
+            carouselIndex = 0;
+            carouselCore(carouselIndex);
+        }
+    }, 3000);
+}
+
+function stopAutoplay(){
+    clearInterval(autoplay);
+}
+
+function reversedAutoplay(){
+    autoplay = setInterval(function(){
+        if(carouselIndex == 0){
+            carouselIndex = 4;
+            carouselCore(carouselIndex);
+        }else if(carouselIndex <= 4){
+            carouselIndex--;
+            carouselCore(carouselIndex);
+        }
+    }, 3000);
+}
 
 /*------------------------------------------------------------------------------
                                 FUNCTIONS 
@@ -215,20 +242,24 @@ const images = [
 // Milestone 1:
 // Ora rimuoviamo i contenuti statici e usiamo l’array di oggetti letterali per popolare dinamicamente il carosello.
 const container = document.getElementById("items-container");
+const startButton = document.getElementById("start-btn");
+const stopButton = document.getElementById("stop-btn");
+const reverseButton = document.getElementById("reverse-btn");
 let carouselIndex = 0;
+let autoplay;
 
 carouselCore(carouselIndex);
 
-const autoplay = setInterval(function(){
-    if(carouselIndex < 4){
-        carouselIndex++;
-        carouselCore(carouselIndex);
-    }else{
-        carouselIndex = 0;
-        carouselCore(carouselIndex);
-    }
-}, 3000);
-
 // BONUS 3:
 // Aggiungere bottoni di start/stop e di inversione del meccanismo di autoplay.
-// Buon lavoro e buon divertimento! :faccia_leggermente_sorridente:
+startButton.addEventListener("click", function(){
+    startAutoplay();
+});
+
+stopButton.addEventListener("click", function(){
+    stopAutoplay();
+});
+
+reverseButton.addEventListener("click", function(){
+    reversedAutoplay();
+});
