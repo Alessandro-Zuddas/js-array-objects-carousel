@@ -26,6 +26,9 @@ function carouselCore(carouselIndex){
             <div class="col-small-row">
                 <img class="item-img" src="${images[4].image}" alt="">
             </div>
+            <!-- Buttons -->
+            <button id="previous-btn" class="previous btns" type="button"><i class="fa-solid fa-chevron-up"></i></button>
+            <button id="next-btn" class="next btns" type="button"><i class="fa-solid fa-chevron-down"></i></button>
         </div>
         `
     }else if(carouselIndex === 1){
@@ -52,6 +55,9 @@ function carouselCore(carouselIndex){
             <div class="col-small-row">
                 <img class="item-img" src="${images[0].image}" alt="">
             </div>
+            <!-- Buttons -->
+            <button id="previous-btn" class="previous btns" type="button"><i class="fa-solid fa-chevron-up"></i></button>
+            <button id="next-btn" class="next btns" type="button"><i class="fa-solid fa-chevron-down"></i></button>
         </div>
         `
     }else if(carouselIndex === 2){
@@ -78,6 +84,9 @@ function carouselCore(carouselIndex){
             <div class="col-small-row">
                 <img class="item-img" src="${images[1].image}" alt="">
             </div>
+            <!-- Buttons -->
+            <button id="previous-btn" class="previous btns" type="button"><i class="fa-solid fa-chevron-up"></i></button>
+            <button id="next-btn" class="next btns" type="button"><i class="fa-solid fa-chevron-down"></i></button>
         </div>
         `
     }else if(carouselIndex === 3){
@@ -104,6 +113,9 @@ function carouselCore(carouselIndex){
             <div class="col-small-row">
                 <img class="item-img" src="${images[2].image}" alt="">
             </div>
+            <!-- Buttons -->
+            <button id="previous-btn" class="previous btns" type="button"><i class="fa-solid fa-chevron-up"></i></button>
+            <button id="next-btn" class="next btns" type="button"><i class="fa-solid fa-chevron-down"></i></button>
         </div>
         `
     }else if(carouselIndex === 4){
@@ -130,9 +142,39 @@ function carouselCore(carouselIndex){
             <div class="col-small-row">
                 <img class="item-img" src="${images[3].image}" alt="">
             </div>
+            <!-- Buttons -->
+            <button id="previous-btn" class="previous btns" type="button"><i class="fa-solid fa-chevron-up"></i></button>
+            <button id="next-btn" class="next btns" type="button"><i class="fa-solid fa-chevron-down"></i></button>
         </div>
         `
     }
+
+    const nextBtn = document.getElementById("next-btn");
+    const previousBtn = document.getElementById("previous-btn");
+
+    nextBtn.addEventListener("click", function(){
+
+        if(carouselIndex == 4){
+            carouselIndex = 0;
+            carouselCore(carouselIndex);
+        }else{
+            carouselIndex++;
+            carouselCore(carouselIndex);
+        }
+
+    });
+
+    previousBtn.addEventListener("click", function(){
+
+        if(carouselIndex <= 0){
+            carouselIndex = 4;
+            carouselCore(carouselIndex);
+        }else{
+            carouselIndex--;
+            carouselCore(carouselIndex);
+        }
+
+    });
 
 }
 
@@ -176,33 +218,6 @@ const container = document.getElementById("items-container");
 let carouselIndex = 0;
 
 carouselCore(carouselIndex);
-
-const nextBtn = document.getElementById("next-btn");
-const previousBtn = document.getElementById("previous-btn");
-
-nextBtn.addEventListener("click", function(){
-
-    if(carouselIndex == 4){
-        carouselIndex = 0;
-        carouselCore(carouselIndex);
-    }else{
-        carouselIndex++;
-        carouselCore(carouselIndex);
-    }
-
-});
-
-previousBtn.addEventListener("click", function(){
-
-    if(carouselIndex <= 0){
-        carouselIndex = 4;
-        carouselCore(carouselIndex);
-    }else{
-        carouselIndex--;
-        carouselCore(carouselIndex);
-    }
-
-});
 
 const autoplay = setInterval(function(){
     if(carouselIndex < 4){
