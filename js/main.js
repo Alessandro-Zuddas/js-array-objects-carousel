@@ -136,6 +136,7 @@ function carouselCore(carouselIndex){
 
 }
 
+
 /*------------------------------------------------------------------------------
                                 FUNCTIONS 
 -------------------------------------------------------------------------------*/
@@ -203,11 +204,11 @@ previousBtn.addEventListener("click", function(){
 
 });
 
-// Al click dell'utente sulle frecce verso l'alto o il basso, l'immagine attiva diventerà visibile e dovremo aggiungervi titolo e testo.
-// Milestone 2:
-// Aggiungere il **ciclo infinito** del carosello. Ovvero se la miniatura attiva è la prima e l'utente clicca la freccia verso l'alto, la miniatura che deve attivarsi sarà l'ultima e viceversa per l'ultima miniatura se l'utente clicca la freccia verso il basso.
-// BONUS 1:
-// Aggiungere le thumbnails (sottoforma di miniatura) ed al click attivare l’immagine corrispondente.
+const autoplay = setInterval(function(){
+    carouselIndex++;
+    carouselCore(carouselIndex);
+}, 3000);
+
 // BONUS 2:
 // Aggiungere funzionalità di autoplay: dopo un certo periodo di tempo (3 secondi) l’immagine attiva dovrà cambiare alla successiva.
 // BONUS 3:
