@@ -1,152 +1,58 @@
 "use strict";
 
+function carouselSettings(carouselIndex, miniatureOne, miniatureTwo, miniatureThree, miniatureFour){
+
+    container.innerHTML = 
+    `
+    <div class="col-big">
+        <img class="item-img" src="${images[carouselIndex].image}" alt="">
+        <div class="item-description">
+            <h2 class="item-title">${images[carouselIndex].title}</h2>
+            <p class="item-text">${images[carouselIndex].text}</p>
+        </div>
+    </div>
+    <div class="col-small">
+        <div class="col-small-row">
+            <img class="item-img" src="${miniatureOne}" alt="">
+        </div>
+        <div class="col-small-row">
+            <img class="item-img" src="${miniatureTwo}" alt="">
+        </div>
+        <div class="col-small-row">
+            <img class="item-img" src="${miniatureThree}" alt="">
+        </div>
+        <div class="col-small-row">
+            <img class="item-img" src="${miniatureFour}" alt="">
+        </div>
+        <!-- Buttons -->
+        <button id="previous-btn" class="previous btns" type="button"><i class="fa-solid fa-chevron-up"></i></button>
+        <button id="next-btn" class="next btns" type="button"><i class="fa-solid fa-chevron-down"></i></button>
+    </div>
+    `
+};
+
 function carouselCore(carouselIndex){
 
     if(carouselIndex === 0){
 
-        container.innerHTML = 
-        `
-        <div class="col-big">
-            <img class="item-img" src="${images[0].image}" alt="">
-            <div class="item-description">
-                <h2 class="item-title">${images[0].title}</h2>
-                <p class="item-text">${images[0].text}</p>
-            </div>
-        </div>
-        <div class="col-small">
-            <div class="col-small-row">
-                <img class="item-img" src="${images[1].image}" alt="">
-            </div>
-            <div class="col-small-row">
-                <img class="item-img" src="${images[2].image}" alt="">
-            </div>
-            <div class="col-small-row">
-                <img class="item-img" src="${images[3].image}" alt="">
-            </div>
-            <div class="col-small-row">
-                <img class="item-img" src="${images[4].image}" alt="">
-            </div>
-            <!-- Buttons -->
-            <button id="previous-btn" class="previous btns" type="button"><i class="fa-solid fa-chevron-up"></i></button>
-            <button id="next-btn" class="next btns" type="button"><i class="fa-solid fa-chevron-down"></i></button>
-        </div>
-        `
+        carouselSettings(carouselIndex, stateTwo.image, stateThree.image, stateFour.image, stateFive.image);
+
     }else if(carouselIndex === 1){
 
-        container.innerHTML = 
-        `
-        <div class="col-big">
-            <img class="item-img" src="${images[1].image}" alt="">
-            <div class="item-description">
-                <h2 class="item-title">${images[1].title}</h2>
-                <p class="item-text">${images[1].text}</p>
-            </div>
-        </div>
-        <div class="col-small">
-            <div class="col-small-row">
-                <img class="item-img" src="${images[2].image}" alt="">
-            </div>
-            <div class="col-small-row">
-                <img class="item-img" src="${images[3].image}" alt="">
-            </div>
-            <div class="col-small-row">
-                <img class="item-img" src="${images[4].image}" alt="">
-            </div>
-            <div class="col-small-row">
-                <img class="item-img" src="${images[0].image}" alt="">
-            </div>
-            <!-- Buttons -->
-            <button id="previous-btn" class="previous btns" type="button"><i class="fa-solid fa-chevron-up"></i></button>
-            <button id="next-btn" class="next btns" type="button"><i class="fa-solid fa-chevron-down"></i></button>
-        </div>
-        `
+        carouselSettings(carouselIndex, stateThree.image, stateFour.image, stateFive.image, stateOne.image);
+
     }else if(carouselIndex === 2){
 
-        container.innerHTML = 
-        `
-        <div class="col-big">
-            <img class="item-img" src="${images[2].image}" alt="">
-            <div class="item-description">
-                <h2 class="item-title">${images[2].title}</h2>
-                <p class="item-text">${images[2].text}</p>
-            </div>
-        </div>
-        <div class="col-small">
-            <div class="col-small-row">
-                <img class="item-img" src="${images[3].image}" alt="">
-            </div>
-            <div class="col-small-row">
-                <img class="item-img" src="${images[4].image}" alt="">
-            </div>
-            <div class="col-small-row">
-                <img class="item-img" src="${images[0].image}" alt="">
-            </div>
-            <div class="col-small-row">
-                <img class="item-img" src="${images[1].image}" alt="">
-            </div>
-            <!-- Buttons -->
-            <button id="previous-btn" class="previous btns" type="button"><i class="fa-solid fa-chevron-up"></i></button>
-            <button id="next-btn" class="next btns" type="button"><i class="fa-solid fa-chevron-down"></i></button>
-        </div>
-        `
+        carouselSettings(carouselIndex, stateFour.image, stateFive.image, stateOne.image, stateTwo.image);
+
     }else if(carouselIndex === 3){
 
-        container.innerHTML = 
-        `
-        <div class="col-big">
-            <img class="item-img" src="${images[3].image}" alt="">
-            <div class="item-description">
-                <h2 class="item-title">${images[3].title}</h2>
-                <p class="item-text">${images[3].text}</p>
-            </div>
-        </div>
-        <div class="col-small">
-            <div class="col-small-row">
-                <img class="item-img" src="${images[4].image}" alt="">
-            </div>
-            <div class="col-small-row">
-                <img class="item-img" src="${images[0].image}" alt="">
-            </div>
-            <div class="col-small-row">
-                <img class="item-img" src="${images[1].image}" alt="">
-            </div>
-            <div class="col-small-row">
-                <img class="item-img" src="${images[2].image}" alt="">
-            </div>
-            <!-- Buttons -->
-            <button id="previous-btn" class="previous btns" type="button"><i class="fa-solid fa-chevron-up"></i></button>
-            <button id="next-btn" class="next btns" type="button"><i class="fa-solid fa-chevron-down"></i></button>
-        </div>
-        `
+        carouselSettings(carouselIndex, stateFive.image, stateOne.image, stateTwo.image, stateThree.image);
+
     }else if(carouselIndex === 4){
 
-        container.innerHTML = 
-        `
-        <div class="col-big">
-            <img class="item-img" src="${images[4].image}" alt="">
-            <div class="item-description">
-                <h2 class="item-title">${images[4].title}</h2>
-                <p class="item-text">${images[4].text}</p>
-            </div>
-        </div>
-        <div class="col-small">
-            <div class="col-small-row">
-                <img class="item-img" src="${images[0].image}" alt="">
-            </div>
-            <div class="col-small-row">
-                <img class="item-img" src="${images[1].image}" alt="">
-            </div>
-            <div class="col-small-row">
-                <img class="item-img" src="${images[2].image}" alt="">
-            </div>
-            <div class="col-small-row">
-                <img class="item-img" src="${images[3].image}" alt="">
-            </div>
-            <!-- Buttons -->
-            <button id="previous-btn" class="previous btns" type="button"><i class="fa-solid fa-chevron-up"></i></button>
-            <button id="next-btn" class="next btns" type="button"><i class="fa-solid fa-chevron-down"></i></button>
-        </div>
-        `
+        carouselSettings(carouselIndex, stateOne.image, stateTwo.image, stateThree.image, stateFour.image);
+
     }
 
     const nextBtn = document.getElementById("next-btn");
@@ -247,6 +153,11 @@ const stopButton = document.getElementById("stop-btn");
 const reverseButton = document.getElementById("reverse-btn");
 let carouselIndex = 0;
 let autoplay;
+let stateOne = images[0];
+let stateTwo = images[1];
+let stateThree = images[2];
+let stateFour = images[3];
+let stateFive = images[4];
 
 carouselCore(carouselIndex);
 
