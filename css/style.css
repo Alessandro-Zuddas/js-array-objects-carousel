@@ -100,3 +100,7 @@ main{
     padding: .3125rem .625rem;
 }
 
+.grey-panel{
+    filter: grayscale(0.8);
+}
+

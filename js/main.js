@@ -12,16 +12,16 @@ function carouselSettings(carouselIndex, miniatureOne, miniatureTwo, miniatureTh
         </div>
     </div>
     <div class="col-small">
-        <div class="col-small-row">
+        <div class="col-small-row grey-panel">
             <img class="item-img" src="${miniatureOne}" alt="">
         </div>
-        <div class="col-small-row">
+        <div class="col-small-row grey-panel">
             <img class="item-img" src="${miniatureTwo}" alt="">
         </div>
-        <div class="col-small-row">
+        <div class="col-small-row grey-panel">
             <img class="item-img" src="${miniatureThree}" alt="">
         </div>
-        <div class="col-small-row">
+        <div class="col-small-row grey-panel">
             <img class="item-img" src="${miniatureFour}" alt="">
         </div>
         <!-- Buttons -->
